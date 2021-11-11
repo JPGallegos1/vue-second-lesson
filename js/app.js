@@ -5,16 +5,19 @@ var app = new Vue({
     displayUsers: "get users",
     users: [],
     welcome: "Hey Vue why u don't print my users?",
+    param: "",
   },
   methods: {
     getUsers: async () => {
-      const res = await fetch("https://jsonplaceholder.typicode.com/users");
+      const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
       const users = await res.json();
-      console.log(users);
-      this.users.push(users);
+      this.users = users;
+      console.log(this.users);
     },
+  },
+  computed: {
     mapUsers: () => {
-      this.users.length > 0 && this.users.map((user) => user.email);
+      return this.users.map((user) => user.email);
     },
   },
 });

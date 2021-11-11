@@ -11,9 +11,11 @@
   <body>
     <div id="app">
       <p>{{ message }}</p>
-      <button v-on:click="getUsers()">{{displayUsers}}</button>
+      <p>{{param}}</p>
+      <input type="text" v-model="param" />
+      <button @click="getUsers()">{{displayUsers}}</button>
       <ul>
-        <li>{{users}}</li>
+        <li @click="mapUsers()">{{users}}</li>
       </ul>
       <p>{{welcome}}</p>
     </div>
